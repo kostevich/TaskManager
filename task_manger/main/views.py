@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+
 def index(request):
-    return render(request, )
+    return render(request, "main/index.html")
 
+def about(request):
+    return render(request, "main/about.html")
 
-def name(request):
-    return HttpResponse("<h4>My name is Irina</h4>")
+def Python(request):
+    return render(request, "main/python.html")
+
