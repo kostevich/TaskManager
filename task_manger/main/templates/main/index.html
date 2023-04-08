@@ -4,6 +4,7 @@
 {% endblock %}
 {% block content %}
 <h1>Главная страница</h1>
+{% if tasks %}
     {% for task in tasks %}
         {% for repetition in task.repetition.all %}
         {% for status in task.status.all %}
@@ -17,4 +18,7 @@
         {% endfor %}
         {% endfor %}
     {% endfor %}
+{% else %}
+    <p>Задач нет</p>
+{% endif %}
 {% endblock %}
