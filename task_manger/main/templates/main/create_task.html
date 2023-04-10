@@ -8,18 +8,8 @@
     {% csrf_token %}
     {{form.title}}<br>
     {{form.description}}<br>
-    <li>Хотите выполнять задачу регулярно?
-    <ul>
-      <li><label for="Повторять">Повторять</label> <input type="radio" name="TaskRepetition" id="Повторять" value="Повторять"></li>
-      <li><label for="Не повторять">Не повторять</label> <input type="radio" name="TaskRepetition" id="Не повторять" value="Не повторять"></li>
-    </ul>
-    <li>На каком этапе решения задачи вы находитесь?
-    <ul>
-      <li><label for="Сделано">Сделано</label> <input type="radio" name="TaskStatus" id="Сделано" value="Сделано"></li>
-      <li><label for="В процессе">В процессе</label> <input type="radio" name="TaskStatus" id="В процессе" value="В процессе"></li>
-        <li><label for="Не начато">Не начато</label> <input type="radio" name="TaskStatus" id="Не начато" value="Не начато"></li>
-    </ul>
-  </li>
+    {{form.status}}<br>
+    {{form.repetition}}<br>
        <button type ="submit", class="btn btn-success">Добавить</button>
 </form>
 {% endblock %}
