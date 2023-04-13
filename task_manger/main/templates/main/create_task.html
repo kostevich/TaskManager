@@ -6,10 +6,10 @@
 <h1>Создать новую задачу</h1>
 <form method="post">
     {% csrf_token %}
-    {{form.title}}<br>
-    {{form.description}}<br>
-    {{form.status}}<br>
-    {{form.repetition}}<br>
+    {{formtask.title}}<br>
+    {{formtask.description}}<br>
+    {{formtask.status}}<br>
+    {{formtask.repetition}}<br>
        <button type ="submit", class="btn btn-success">Добавить</button>
 </form>
 {% endblock %}

@@ -1,14 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Task, TaskRepetition, TaskStatus
-from .forms import TaskForm, TaskRepetitionForm, TaskStatusForm
+from .forms import TaskForm
 
 
 def index(request):
     tasks = Task.objects.order_by('id')
     statuses = TaskStatus.objects.all()
+    for status in statuses:
+        print(status.status)
     repetitions = TaskRepetition.objects.all()
+    for repetition in repetitions:
+        print(repetition.status)
     context = {"tasks": tasks, "status": statuses, "repetition": repetitions}
     return render(request, "main/index.html", context)
+
 
 
 def about(request):
@@ -17,25 +22,11 @@ def about(request):
 
 def create_task(request):
     if request.method == 'POST':
-        print(0)
         formtask = TaskForm(request.POST)
-        print(12)
         if formtask.is_valid():
-            print(1)
             formtask.save()
-        formstatus = TaskForm(request.POST)
-        if formstatus.is_valid():
-            print(2)
-            formstatus.save()
-        formrepetition = TaskForm(request.POST)
-        if formrepetition.is_valid():
-            print(3)
-            formrepetition.save()
+            return redirect('index')
     formtask = TaskForm()
-    formstatus = TaskStatusForm()
-    formrepetition= TaskRepetitionForm()
     context = {"formtask": formtask,
-               "formstatus": formstatus,
-               "formrepetition": formrepetition,
                }
     return render(request, "main/create_task.html", context)
