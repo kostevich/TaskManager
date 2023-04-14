@@ -9,11 +9,11 @@
         {% for repetition in task.repetition.all %}
         {% for status in task.status.all %}
         <div class="alert alert-warning et-2">
-            <h1>{{task.title}}</h1>
-        <h4>{{task.description}}</h4>
-        <h5>{{task.creation_time}}</h5>
-            <p>{{repetition.status}}</p>
-            <p>{{status.status}}</p>
+            <h2>{{task.title}}</h2>
+            <h3>{{task.description}}</h3>
+            <h6>{{task.creation_time}}</h6>
+            <h6>{{repetition.status}}</h6>
+            <h6>{{status.status}}</h6>
         </div>
         {% endfor %}
         {% endfor %}

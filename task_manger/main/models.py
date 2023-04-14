@@ -3,6 +3,8 @@ from django.db import models
 
 class TaskStatus(models.Model):
     status = models.CharField("Статус задачи", max_length=30)
+    def __str__(self):
+        return self.status
 
     class Meta():
         verbose_name = "Статус задачи"
@@ -11,7 +13,8 @@ class TaskStatus(models.Model):
 
 class TaskRepetition(models.Model):
     status = models.CharField("Надо ли повторять задачу", max_length=30)
-
+    def __str__(self):
+        return self.status
     class Meta():
         verbose_name = "Повторение задачи"
         verbose_name_plural = "Повторение задач"
