@@ -1,28 +1,55 @@
+
+#==========================================================================================#
+# >>>>> ПОДКЛЮЧЕНИЕ БИБЛИОТЕК И МОДУЛЕЙ <<<<< #
+#==========================================================================================#
+
 from django.shortcuts import render, redirect
 from .models import Task, TaskRepetition, TaskStatus
 from .forms import TaskForm
 
+#==========================================================================================#
+# >>>>> ГЛАВНАЯ СТРАНИЦА <<<<< #
+#==========================================================================================#
 
 def index(request):
-    tasks = Task.objects.order_by('id')
+    # Передача всех объектов из моделей Django.
+    tasks = Task.objects.all()
     statuses = TaskStatus.objects.all()
     repetitions = TaskRepetition.objects.all()
+
+    # Передача данных сайту.
     context = {"tasks": tasks, "status": statuses, "repetition": repetitions}
-    return render(request, "main/index.html", context)
 
+    # Открытие главной страницы.
+    return render(request, "main/Index.html", context)
 
+#==========================================================================================#
+# >>>>> СТРАНИЦА, СОЗДАНИЯ НОВЫХ ЗАДАЧ <<<<< #
+#==========================================================================================#
 
 def create_task(request):
+    # Если вызван метод POST.
     if request.method == 'POST':
+        # Получаем данные из формы.
         formtask = TaskForm(request.POST)
-        if formtask.is_valid():
-            formtask.save()
-            return redirect('index')
-    formtask = TaskForm()
-    context = {"formtask": formtask,
-               }
-    return render(request, "main/create_task.html", context)
 
+        # Если данные соответвуют требованиям.
+        if formtask.is_valid():
+            # Сохраняем их.
+            formtask.save()
+
+            # Переходим на главную страницу.
+            return redirect('Index')
+        
+    # Форма, без значений.    
+    formtask = TaskForm()
+
+    # Передача формы.
+    context = {"formtask": formtask,
+           }
+    
+    # Открытие страницы, создания новых задач.
+    return render(request, "main/CreateTask.html", context)
 
 
 
