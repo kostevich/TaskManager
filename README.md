@@ -29,11 +29,9 @@ python manage.py createsuperuser
 3. Перейти по ссылке добавив к ней admin (пример: http://127.0.0.1:8000/admin).
 
 # Отслеживание в базе данных.
-
 Откройте файл db.sqlite3 в программе для открытия баз данных (пример: [SQLiteStudio](https://sqlitestudio.pl/)).
 
 # Пример работы
-
 **Список задач:**
 
 ![image](https://github.com/kostevich/TaskManager/assets/109979502/ed7f70d5-d4f7-4708-9cd1-1234ec108a86)
