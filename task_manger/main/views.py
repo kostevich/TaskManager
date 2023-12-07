@@ -4,8 +4,9 @@
 #==========================================================================================#
 
 from django.shortcuts import render, redirect
-from .models import Task, TaskRepetition, TaskStatus
 from .forms import TaskForm
+from .models import Task, TaskRepetition, TaskStatus
+
 
 #==========================================================================================#
 # >>>>> ГЛАВНАЯ СТРАНИЦА <<<<< #
