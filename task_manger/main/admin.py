@@ -4,7 +4,7 @@
 #==========================================================================================#
 
 from django.contrib import admin
-from .models import Task, TaskStatus, TaskRepetition
+from .models import Task, TaskRepetition, TaskStatus
 
 #==========================================================================================#
 # >>>>> РЕГИСТРАЦИЯ МОДЕЛЕЙ <<<<< #

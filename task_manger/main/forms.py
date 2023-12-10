@@ -4,7 +4,7 @@
 #==========================================================================================#
 
 from django import forms
-from django.forms import TextInput, Textarea
+from django.forms import Textarea, TextInput
 from .models import Task
 
 #==========================================================================================#

@@ -3,7 +3,7 @@
 # >>>>> ПОДКЛЮЧЕНИЕ БИБЛИОТЕК И МОДУЛЕЙ <<<<< #
 #==========================================================================================#
 
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from .forms import TaskForm
 from .models import Task, TaskRepetition, TaskStatus
 
